@@ -23,6 +23,7 @@ Plugin 'vim-python/python-syntax'
 Plugin 'chr4/nginx.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tmhedberg/matchit'
+Plugin 'easymotion/vim-easymotion'
 
 " All Plugins must be added before the following line
 call vundle#end()
@@ -68,6 +69,10 @@ inoremap <esc> <NOP>
 nnoremap j gj
 nnoremap k gk
 
+" Map search to space
+noremap <space> /
+noremap <c-space> ?
+
 " Disable arrow keys in normal mode
 noremap <Up> <NOP>
 noremap <Down> <NOP>
@@ -78,10 +83,6 @@ noremap <Right> <NOP>
 nnoremap <c-c><c-c> "+yy
 vnoremap <c-c><c-c> "+yy<cr>
 noremap <c-v><c-v> "+p
-
-" Map search to space
-noremap <space> /
-noremap <c-space> ?
 
 " Move lines using Alt+[jk]
 nnoremap <M-j> mz:m+<cr>`z
@@ -144,9 +145,16 @@ nmap <silent> <leader>en :ALENext<cr>
 nmap <silent> <leader>ep :ALEPrevious<cr>
 
 " YouCompleteMe settings
-let g:ycm_autoclose_preview_window_after_completion = 1
+" let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_seed_identifiers_with_syntax = 1
 map <leader>g :YcmCompleter GoTo<CR>
 map <leader>d :YcmCompleter GetDoc<CR>
+
+" EasyMotion settings
+let g:EasyMotion_smartcase = 1
+nmap s <Plug>(easymotion-overwin-f)
+nmap <Leader>w <Plug>(easymotion-w)
+nmap <Leader>b <Plug>(easymotion-b)
 
 " Add python virtualenv paths to place where ycm can see them
 py3 << EOF
@@ -170,4 +178,5 @@ fun! JoinSpaceless()
     endif
 endfun
 
+nnoremap gJ J
 nnoremap J :call JoinSpaceless()<CR>
