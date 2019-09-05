@@ -22,6 +22,7 @@ Plugin 'w0rp/ale'
 Plugin 'vim-python/python-syntax'
 Plugin 'chr4/nginx.vim'
 Plugin 'tpope/vim-surround'
+Plugin 'tmhedberg/matchit'
 
 " All Plugins must be added before the following line
 call vundle#end()
