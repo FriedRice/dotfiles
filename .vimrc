@@ -99,10 +99,10 @@ map <leader>ss :setlocal spell!<cr>
 
 " Move backups to /tmp directory
 set backup
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set backupskip=/tmp/*,/private/tmp/*
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set writebackup
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupskip=/tmp/*,/private/tmp/*
 
 " Apply syntax highlighting to any Dockerfile.* file
 au BufRead,BufNewFile Dockerfile.* set filetype=dockerfile
@@ -145,8 +145,9 @@ nmap <silent> <leader>en :ALENext<cr>
 nmap <silent> <leader>ep :ALEPrevious<cr>
 
 " YouCompleteMe settings
+" Add language keywords to autocomplete like 'Class', 'continue', etc.
+let g:ycm_seed_identifiers_with_syntax = 1  
 " let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_seed_identifiers_with_syntax = 1
 map <leader>g :YcmCompleter GoTo<CR>
 map <leader>d :YcmCompleter GetDoc<CR>
 
