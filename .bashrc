@@ -136,6 +136,12 @@ lpmlv()
     sudo less /var/lib/docker/volumes/myaku_$1_log/_data/$2
 }
 
+dcc()
+{
+    container_id="$(docker ps | grep "$1" | awk '{ print $1 }')"
+    docker exec -it $container_id /bin/bash
+}
+
 # Git aliases
 alias gst='git status'
 alias gad='git add'

@@ -147,7 +147,7 @@ nmap <silent> <leader>ep :ALEPrevious<cr>
 " YouCompleteMe settings
 " Add language keywords to autocomplete like 'Class', 'continue', etc.
 let g:ycm_seed_identifiers_with_syntax = 1  
-" let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
 map <leader>g :YcmCompleter GoTo<CR>
 map <leader>d :YcmCompleter GetDoc<CR>
 
