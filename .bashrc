@@ -138,8 +138,8 @@ lpmlv()
 
 dcc()
 {
-    container_id="$(docker ps | grep "$1" | awk '{ print $1 }')"
-    docker exec -it $container_id /bin/bash
+    container_id="$(sudo docker ps | grep "$1" | awk '{ print $1 }')"
+    sudo docker exec -it $container_id /bin/bash
 }
 
 # Git aliases

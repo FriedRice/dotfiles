@@ -179,5 +179,4 @@ fun! JoinSpaceless()
     endif
 endfun
 
-nnoremap gJ J
-nnoremap J :call JoinSpaceless()<CR>
+nnoremap DJ :call JoinSpaceless()<CR>
