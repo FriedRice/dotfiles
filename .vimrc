@@ -121,7 +121,7 @@ let g:python_highlight_all = 1
 
 " CtrlP settings
 let g:ctrlp_show_hidden = 1
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|mypy_cache)$'
 let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("t")': ['<c-t>', '<c-cr>'],
     \ 'AcceptSelection("v")': ['<c-v>', '<RightMouse>', '<c-s>'],
@@ -140,7 +140,7 @@ let g:ale_lint_on_enter = 0
 let g:ale_lint_on_save = 1
 let g:ale_python_flake8_executable = 'python3'
 let g:ale_python_flake8_options = '-m flake8'
-let g:ale_python_mypy_options = '--config-file ~/dev/Myaku/mypy.ini'
+let g:ale_python_mypy_options = '--config-file ~/dev/Myaku/setup.cfg'
 nmap <silent> <leader>en :ALENext<cr>
 nmap <silent> <leader>ep :ALEPrevious<cr>
 
