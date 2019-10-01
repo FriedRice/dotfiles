@@ -1,0 +1,18 @@
+{
+    "parserOptions": {
+        "ecmaVersion": 2019,
+        "emcaFeatures": {
+            "impliedStrict": true
+        }
+    },
+    "env": {
+        "browser": true,
+        "es6": true,
+        "jquery": true
+    },
+    "extends": "eslint:recommended",
+    "rules": {
+        "semi": ["error", "always"],
+        "quotes": ["error", "single"]
+    }
+}

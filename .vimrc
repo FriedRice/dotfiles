@@ -97,6 +97,10 @@ nnoremap <C-H> <C-W><C-H>
 " Pressing ,ss will toggle spell checking
 map <leader>ss :setlocal spell!<cr>
 
+" Highlight tabs and trailing whitespace
+set list
+set listchars=tab:>.,trail:.
+
 " Move backups to /tmp directory
 set backup
 set writebackup
@@ -121,7 +125,7 @@ let g:python_highlight_all = 1
 
 " CtrlP settings
 let g:ctrlp_show_hidden = 1
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|mypy_cache)$'
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|mypy_cache|pytest_cache)$'
 let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("t")': ['<c-t>', '<c-cr>'],
     \ 'AcceptSelection("v")': ['<c-v>', '<RightMouse>', '<c-s>'],
@@ -141,13 +145,15 @@ let g:ale_lint_on_save = 1
 let g:ale_python_flake8_executable = 'python3'
 let g:ale_python_flake8_options = '-m flake8'
 let g:ale_python_mypy_options = '--config-file ~/dev/Myaku/setup.cfg'
+let g:ale_javascript_eslint_options = '-c ~/.eslintrc.json'
 nmap <silent> <leader>en :ALENext<cr>
 nmap <silent> <leader>ep :ALEPrevious<cr>
 
 " YouCompleteMe settings
 " Add language keywords to autocomplete like 'Class', 'continue', etc.
-let g:ycm_seed_identifiers_with_syntax = 1  
+let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_show_diagnostics_ui = 0
 map <leader>g :YcmCompleter GoTo<CR>
 map <leader>d :YcmCompleter GetDoc<CR>
 
