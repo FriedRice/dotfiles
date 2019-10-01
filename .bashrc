@@ -205,8 +205,6 @@ alias awsc="ssh -i ~/Downloads/Nick-key-pair-ohio.pem \"$AWS_CONN\""
 export AWS_CONN_W="ubuntu@ec2-52-15-90-136.us-east-2.compute.amazonaws.com"
 alias awscw="ssh -i ~/Downloads/Nick-key-pair-ohio.pem \"$AWS_CONN_W\""
 
-export PATH=$PATH:/home/ruri/.local/bin
-
 # Change autocomplete behavior
 bind 'set show-all-if-ambiguous on'
 bind 'set completion-ignore-case on'
@@ -219,9 +217,13 @@ source ~/.local/bin/virtualenvwrapper.sh
 # Alias for working with git repo for system config files like dotfiles
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
-if [[ ":$PYTHONPATH:" != *":/ruri/home/dev/Myaku:"* ]]; then
+if [[ ":$PATH:" != *":/home/ruri/.local/bin/dart-sass:"* ]]; then
+    export PATH=$PATH:/home/ruri/.local/bin/dart-sass
+fi
+
+if [[ ":$PYTHONPATH:" != *":/home/ruri/dev/Myaku:"* ]]; then
     export PYTHONPATH=$PYTHONPATH:/home/ruri/dev/Myaku
 fi
-if [[ ":$PYTHONPATH:" != *":/ruri/home/dev/Myaku/myakuweb:"* ]]; then
+if [[ ":$PYTHONPATH:" != *":/home/ruri/dev/Myaku/myakuweb:"* ]]; then
     export PYTHONPATH=$PYTHONPATH:/home/ruri/dev/Myaku/myakuweb
 fi
