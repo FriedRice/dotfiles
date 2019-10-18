@@ -18,17 +18,21 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'Vimjas/vim-python-pep8-indent'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'w0rp/ale'
+Plugin 'dense-analysis/ale'
 Plugin 'vim-python/python-syntax'
 Plugin 'chr4/nginx.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tmhedberg/matchit'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'elzr/vim-json'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'peitalin/vim-jsx-typescript'
 
 " All Plugins must be added before the following line
 call vundle#end()
 filetype plugin indent on
-
 
 "" General settings
 set autoread
@@ -111,21 +115,21 @@ set backupskip=/tmp/*,/private/tmp/*
 " Apply syntax highlighting to any Dockerfile.* file
 au BufRead,BufNewFile Dockerfile.* set filetype=dockerfile
 
-" Change indention for YAML files
-au BufRead,BufNewFile *.yml setlocal shiftwidth=2
-au BufRead,BufNewFile *.yml setlocal tabstop=2
-au BufRead,BufNewFile *.yml setlocal softtabstop=2
-au BufRead,BufNewFile *.yaml setlocal shiftwidth=2
-au BufRead,BufNewFile *.yaml setlocal tabstop=2
-au BufRead,BufNewFile *.yaml setlocal softtabstop=2
+" Change indention for YAML and JSON files
+au BufRead,BufNewFile *.yml,*.yaml,*.json setlocal shiftwidth=2
+au BufRead,BufNewFile *.yml,*.yaml,*.json setlocal tabstop=2
+au BufRead,BufNewFile *.yml,*.yaml,*.json setlocal softtabstop=2
 
-" Python settings
-let g:python_highlight_space_errors = 0
-let g:python_highlight_all = 1
+" Set jsx files to use typescript jsx syntax highlighting plugin
+autocmd BufRead,BufNewFile *.tsx,*.jsx setlocal filetype=typescript.tsx
+
+" JSON settings
+let g:vim_json_syntax_conceal = 0
+let g:vim_json_warnings = 0
 
 " CtrlP settings
 let g:ctrlp_show_hidden = 1
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|mypy_cache|pytest_cache)$'
+let g:ctrlp_custom_ignore = '\v[\/]\.?(git|cache|mypy_cache|pytest_cache|node_modules)$'
 let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("t")': ['<c-t>', '<c-cr>'],
     \ 'AcceptSelection("v")': ['<c-v>', '<RightMouse>', '<c-s>'],
@@ -142,12 +146,9 @@ let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_insert_leave = 0
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_save = 1
-let g:ale_python_flake8_executable = 'python3'
-let g:ale_python_flake8_options = '-m flake8'
-let g:ale_python_mypy_options = '--config-file ~/dev/Myaku/setup.cfg'
-let g:ale_javascript_eslint_options = '-c ~/.eslintrc.json'
 nmap <silent> <leader>en :ALENext<cr>
 nmap <silent> <leader>ep :ALEPrevious<cr>
+nmap <silent> <leader>q :ALEFix<CR>
 
 " YouCompleteMe settings
 " Add language keywords to autocomplete like 'Class', 'continue', etc.
@@ -162,17 +163,6 @@ let g:EasyMotion_smartcase = 1
 nmap s <Plug>(easymotion-overwin-f)
 nmap <Leader>w <Plug>(easymotion-w)
 nmap <Leader>b <Plug>(easymotion-b)
-
-" Add python virtualenv paths to place where ycm can see them
-py3 << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  activate_this_path = os.path.join(project_base_dir, 'bin/activate_this.py')
-  with open(activate_this_path) as activate_this_file:
-      exec(activate_this_file.read(), {'__file__': activate_this_path})
-EOF
 
 " Like gJ, but always remove spaces (taken from vi.stackexchange.com)
 fun! JoinSpaceless()

@@ -224,6 +224,6 @@ fi
 if [[ ":$PYTHONPATH:" != *":/home/ruri/dev/Myaku:"* ]]; then
     export PYTHONPATH=$PYTHONPATH:/home/ruri/dev/Myaku
 fi
-if [[ ":$PYTHONPATH:" != *":/home/ruri/dev/Myaku/myakuweb:"* ]]; then
-    export PYTHONPATH=$PYTHONPATH:/home/ruri/dev/Myaku/myakuweb
+if [[ ":$PYTHONPATH:" != *":/home/ruri/dev/Myaku/myakuweb-apiserver:"* ]]; then
+    export PYTHONPATH=$PYTHONPATH:/home/ruri/dev/Myaku/myakuweb-apiserver
 fi
