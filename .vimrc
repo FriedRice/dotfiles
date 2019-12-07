@@ -28,7 +28,8 @@ Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'elzr/vim-json'
 Plugin 'leafgarland/typescript-vim'
-Plugin 'peitalin/vim-jsx-typescript'
+Plugin 'MaxMEllon/vim-jsx-pretty'
+"Plugin 'peitalin/vim-jsx-typescript'
 
 " All Plugins must be added before the following line
 call vundle#end()

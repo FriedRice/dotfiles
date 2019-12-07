@@ -4,6 +4,10 @@ syntax keyword extraTypescriptGlobalObjects Iterator Map WeakMap Set WeakSet Pro
 highlight def link extraTypescriptGlobalObjects Special
 
 
+" Add highlighting for new ? and ?? operators in typescript 3.7
+syntax match questionMarkOperator "\(?\)\|\(??\)"
+highligh def link questionMarkOperator Boolean
+
 " Overrides for typescript-vim
 highlight link typescriptBraces NONE
 highlight link typescriptParens NONE
@@ -17,3 +21,7 @@ highlight link typescriptNull Structure
 highlight link tsxTagName Constant
 highlight link tsxCloseString Constant
 highlight link WebBrowser Special
+
+
+" Overrides for vim-jsx-pretty
+highlight link jsxComponentName Constant
